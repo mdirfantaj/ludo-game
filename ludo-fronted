@@ -1,4 +1,3 @@
-ludo-frontend/
 ├── index.html
 <!DOCTYPE html>
 <html>
@@ -25,7 +24,6 @@ ludo-frontend/
 </body>
 </html>
 ├── style.css
-/* Ludo Game Styling */
 body { 
   font-family: Arial, sans-serif; 
   text-align: center; 
@@ -34,12 +32,10 @@ body {
 h1 { color: green; }
 #signup, #game { margin-top: 20px; }
 
-/* Optional: input & button styling */
 input { padding: 8px; margin: 5px; }
 button { padding: 8px 12px; cursor: pointer; background: green; color: white; border: none; border-radius: 4px; }
 button:hover { background: darkgreen; }
-└── game.js
-// Signup function (frontend)
+├── game.js
 function signup() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -49,7 +45,7 @@ function signup() {
     return;
   }
 
-  fetch("https://<railway-backend-url>/signup", {  // Replace with your Railway URL
+  fetch("https://your-repl-name.username.repl.co/signup", {  // Replace with Replit URL
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
@@ -68,23 +64,21 @@ function signup() {
   .catch(err => console.error(err));
 }
 
-// Simple Ludo canvas demo
 function startGame() {
   const canvas = document.getElementById("board");
   const ctx = canvas.getContext("2d");
 
-  // Draw simple Ludo board (placeholder)
   ctx.fillStyle = "#FFD700";
   ctx.fillRect(0, 0, 400, 400);
 
   ctx.fillStyle = "#FF0000";
-  ctx.fillRect(0, 0, 100, 100); // Top-left red square
+  ctx.fillRect(0, 0, 100, 100);
   ctx.fillStyle = "#0000FF";
-  ctx.fillRect(300, 0, 100, 100); // Top-right blue square
+  ctx.fillRect(300, 0, 100, 100);
   ctx.fillStyle = "#00FF00";
-  ctx.fillRect(0, 300, 100, 100); // Bottom-left green square
+  ctx.fillRect(0, 300, 100, 100);
   ctx.fillStyle = "#FFFF00";
-  ctx.fillRect(300, 300, 100, 100); // Bottom-right yellow square
+  ctx.fillRect(300, 300, 100, 100);
 
   ctx.fillStyle = "#000";
   ctx.font = "20px Arial";
